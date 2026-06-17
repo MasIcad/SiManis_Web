@@ -1,0 +1,101 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { Linkedin, Github, Mail } from 'lucide-react'
+import Image from 'next/image'
+
+// Replace with your actual team members
+const teamMembers = [
+  {
+    name: 'Nama Ketua Tim',
+    role: 'Project Leader',
+    bio: 'Mahasiswa Teknik Biomedis yang fokus pada pengembangan alat kesehatan inovatif.',
+    image: '/team/leader.jpg', // Add your image to public/team/
+    social: { linkedin: '#', github: '#', email: '#' }
+  },
+  {
+    name: 'Nama Anggota 1',
+    role: 'Hardware Engineer',
+    bio: 'Ahli dalam desain sirkuit dan sistem embedded untuk alat kesehatan.',
+    image: '/team/member1.jpg',
+    social: { linkedin: '#', github: '#', email: '#' }
+  },
+  {
+    name: 'Nama Anggota 2',
+    role: 'Software Developer',
+    bio: 'Mengembangkan antarmuka pengguna dan sistem kontrol SiManis.',
+    image: '/team/member2.jpg',
+    social: { linkedin: '#', github: '#', email: '#' }
+  },
+  {
+    name: 'Nama Anggota 3',
+    role: 'Research Analyst',
+    bio: 'Bertanggung jawab atas penelitian pasar dan uji klinis produk.',
+    image: '/team/member3.jpg',
+    social: { linkedin: '#', github: '#', email: '#' }
+  },
+]
+
+export function Team() {
+  return (
+    <section id="team" className="py-24 bg-sterile-white">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-medical-blue mb-4 font-plus-jakarta">
+            Meet the{' '}
+            <span className="text-gradient">Team</span>
+          </h2>
+          <p className="text-lg text-medical-blue/70">
+            Tim inovatif di balik pengembangan SiManis, siap membawa sweetness revolution ke Indonesia
+          </p>
+        </motion.div>
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {teamMembers.map((member, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <div className="relative rounded-2xl overflow-hidden bg-white border border-tech-silver shadow-sm hover:shadow-xl transition-all duration-300">
+                <div className="aspect-square bg-gradient-to-br from-medical-blue/5 to-digital-cyan/5 flex items-center justify-center">
+                  {/* Profile Image Placeholder */}
+                  <div className="w-full h-full bg-tech-silver/30 flex items-center justify-center">
+                    <svg className="w-24 h-24 text-medical-blue/30" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-bold text-medical-blue mb-1">{member.name}</h3>
+                  <p className="text-sm text-digital-cyan font-medium mb-3">{member.role}</p>
+                  <p className="text-sm text-medical-blue/60 mb-4">{member.bio}</p>
+                  <div className="flex justify-center gap-3">
+                    <a href={member.social.linkedin} className="text-medical-blue/40 hover:text-digital-cyan transition-colors">
+                      <Linkedin className="h-5 w-5" />
+                    </a>
+                    <a href={member.social.github} className="text-medical-blue/40 hover:text-digital-cyan transition-colors">
+                      <Github className="h-5 w-5" />
+                    </a>
+                    <a href={member.social.email} className="text-medical-blue/40 hover:text-digital-cyan transition-colors">
+                      <Mail className="h-5 w-5" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-white text-medical-blue;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-medical-blue to-digital-cyan bg-clip-text text-transparent;
+  }
+  
+  .bg-grid-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgba(79, 163, 217, 0.1) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/80;
+  }
+}
