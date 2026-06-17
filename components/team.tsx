@@ -9,7 +9,7 @@ const advisor = {
   name: 'Eka Maulana, S.T., M.T., M.Eng.',
   role: 'Dosen Pendamping',
   bio: 'Dosen pembimbing yang mengarahkan riset dan pengembangan produk SiManis.',
-  image: '/team/pakeka.jpeg', // Add your image to public/team/
+  image: '/team/pakeka.jpeg', // file must exist in public/team/pakeka.jpeg
   social: { linkedin: '#', github: '#', email: '#' }
 }
 
@@ -19,40 +19,48 @@ const teamMembers = [
     name: 'Malfino Altara S.',
     role: 'Project Leader',
     bio: 'Teknik Elektro 24.',
-    image: '/team/member1.JPG', // Add your image to public/team/
+    image: '/team/member1.jpg', // file must exist in public/team/member1.jpg
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Irsyad Annafi N.',
     role: 'Hardware Engineer',
     bio: 'Teknik Elektro 24',
-    image: '/team/member2.JPG', // Add your image to public/team/
+    image: '/team/member2.jpg', // file must exist in public/team/member2.jpg
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Malikah Nurbaiti B.',
     role: 'Creative Media',
     bio: 'Kedokteran Gigi 24',
-    image: '/team/member3.JPG', // Add your image to public/team/
+    image: '/team/member3.jpg', // file must exist in public/team/member3.jpg
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Vika Nur R.',
     role: 'Software Developer',
     bio: 'Teknik Elektro 24',
-    image: '/team/member4.JPG', // Add your image to public/team/
+    image: '/team/member4.jpg', // file must exist in public/team/member4.jpg
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Aisha Yoshinta M.',
     role: 'Marketing & Documentation',
     bio: 'Kedokteran 24',
-    image: '/team/member5.JPG', // Add your image to public/team/
+    image: '/team/member5.jpg', // file must exist in public/team/member5.jpg
     social: { linkedin: '#', github: '#', email: '#' }
   },
 ]
 
+// A path only renders as a real image if it's a web-safe path (starts with / or http).
+// Windows-style absolute paths (E:\...) or empty strings fall back to the placeholder icon.
+function isValidImagePath(path: string) {
+  return !!path && (path.startsWith('/') || path.startsWith('http'))
+}
+
 function MemberCard({ member, index, large = false }: { member: typeof advisor; index: number; large?: boolean }) {
+  const hasImage = isValidImagePath(member.image)
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -62,13 +70,23 @@ function MemberCard({ member, index, large = false }: { member: typeof advisor; 
       className="group"
     >
       <div className="relative rounded-2xl overflow-hidden bg-white border border-tech-silver shadow-sm hover:shadow-xl transition-all duration-300">
-        <div className={`aspect-square bg-gradient-to-br from-medical-blue/5 to-digital-cyan/5 flex items-center justify-center ${large ? 'md:aspect-[3/1]' : ''}`}>
-          {/* Profile Image Placeholder */}
-          <div className="w-full h-full bg-tech-silver/30 flex items-center justify-center">
-            <svg className="w-24 h-24 text-medical-blue/30" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-            </svg>
-          </div>
+        <div className={`relative aspect-square bg-gradient-to-br from-medical-blue/5 to-digital-cyan/5 flex items-center justify-center ${large ? 'md:aspect-[3/1]' : ''}`}>
+          {hasImage ? (
+            <Image
+              src={member.image}
+              alt={member.name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+          ) : (
+            /* Profile Image Placeholder */
+            <div className="w-full h-full bg-tech-silver/30 flex items-center justify-center">
+              <svg className="w-24 h-24 text-medical-blue/30" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+              </svg>
+            </div>
+          )}
         </div>
         <div className="p-6 text-center">
           <h3 className="text-xl font-bold text-medical-blue mb-1">{member.name}</h3>
@@ -116,10 +134,15 @@ export function Team() {
           <MemberCard member={advisor} index={0} />
         </div>
 
-        {/* 5 Anggota Tim */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* 5 Anggota Tim — grid 6 kolom, tiap card span 2, 2 card terakhir di-offset agar center */}
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
           {teamMembers.map((member, index) => (
-            <MemberCard key={index} member={member} index={index + 1} />
+            <div
+              key={index}
+              className={`col-span-2 ${index === 3 ? 'md:col-start-2' : ''}`}
+            >
+              <MemberCard member={member} index={index + 1} />
+            </div>
           ))}
         </div>
       </div>
