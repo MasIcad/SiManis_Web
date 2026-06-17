@@ -9,7 +9,7 @@ const advisor = {
   name: 'Eka Maulana, S.T., M.T., M.Eng.',
   role: 'Dosen Pendamping',
   bio: 'Dosen pembimbing yang mengarahkan riset dan pengembangan produk SiManis.',
-  image: 'E:\Coding\SiManis_Web\simanis-web\team\pakeka.jpeg', // Add your image to public/team/
+  image: '/team/pakeka.jpeg', // Add your image to public/team/
   social: { linkedin: '#', github: '#', email: '#' }
 }
 
@@ -19,35 +19,35 @@ const teamMembers = [
     name: 'Malfino Altara S.',
     role: 'Project Leader',
     bio: 'Teknik Elektro 24.',
-    image: 'E:\Coding\SiManis_Web\simanis-web\team\member1.JPG', // Add your image to public/team/
+    image: '/team/member1.JPG', // Add your image to public/team/
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Irsyad Annafi N.',
     role: 'Hardware Engineer',
     bio: 'Teknik Elektro 24',
-    image: 'E:\Coding\SiManis_Web\simanis-web\team\member2.JPG', // Add your image to public/team/
+    image: '/team/member2.JPG', // Add your image to public/team/
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Malikah Nurbaiti B.',
     role: 'Creative Media',
     bio: 'Kedokteran Gigi 24',
-    image: 'E:\Coding\SiManis_Web\simanis-web\team\member3.JPG', // Add your image to public/team/
+    image: '/team/member3.JPG', // Add your image to public/team/
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Vika Nur R.',
     role: 'Software Developer',
     bio: 'Teknik Elektro 24',
-    image: 'E:\Coding\SiManis_Web\simanis-web\team\member4.JPG', // Add your image to public/team/
+    image: '/team/member4.JPG', // Add your image to public/team/
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Aisha Yoshinta M.',
     role: 'Marketing & Documentation',
     bio: 'Kedokteran 24',
-    image: 'E:\Coding\SiManis_Web\simanis-web\team\member5.JPG', // Add your image to public/team/
+    image: '/team/member5.JPG', // Add your image to public/team/
     social: { linkedin: '#', github: '#', email: '#' }
   },
 ]
