@@ -4,37 +4,92 @@ import { motion } from 'framer-motion'
 import { Linkedin, Github, Mail } from 'lucide-react'
 import Image from 'next/image'
 
+// Dosen Pendamping
+const advisor = {
+  name: 'Eka Maulana, S.T., M.T., M.Eng.',
+  role: 'Dosen Pendamping',
+  bio: 'Dosen pembimbing yang mengarahkan riset dan pengembangan produk SiManis.',
+  image: 'E:\Coding\SiManis_Web\simanis-web\team\pakeka.jpeg', // Add your image to public/team/
+  social: { linkedin: '#', github: '#', email: '#' }
+}
+
 // Replace with your actual team members
 const teamMembers = [
   {
-    name: 'Nama Ketua Tim',
+    name: 'Malfino Altara S.',
     role: 'Project Leader',
-    bio: 'Mahasiswa Teknik Biomedis yang fokus pada pengembangan alat kesehatan inovatif.',
-    image: '/team/leader.jpg', // Add your image to public/team/
+    bio: 'Teknik Elektro 24.',
+    image: 'E:\Coding\SiManis_Web\simanis-web\team\member1.JPG', // Add your image to public/team/
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
-    name: 'Nama Anggota 1',
+    name: 'Irsyad Annafi N.',
     role: 'Hardware Engineer',
-    bio: 'Ahli dalam desain sirkuit dan sistem embedded untuk alat kesehatan.',
-    image: '/team/member1.jpg',
+    bio: 'Teknik Elektro 24',
+    image: 'E:\Coding\SiManis_Web\simanis-web\team\member2.JPG', // Add your image to public/team/
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
-    name: 'Nama Anggota 2',
+    name: 'Malikah Nurbaiti B.',
+    role: 'Creative Media',
+    bio: 'Kedokteran Gigi 24',
+    image: 'E:\Coding\SiManis_Web\simanis-web\team\member3.JPG', // Add your image to public/team/
+    social: { linkedin: '#', github: '#', email: '#' }
+  },
+  {
+    name: 'Vika Nur R.',
     role: 'Software Developer',
-    bio: 'Mengembangkan antarmuka pengguna dan sistem kontrol SiManis.',
-    image: '/team/member2.jpg',
+    bio: 'Teknik Elektro 24',
+    image: 'E:\Coding\SiManis_Web\simanis-web\team\member4.JPG', // Add your image to public/team/
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
-    name: 'Nama Anggota 3',
-    role: 'Research Analyst',
-    bio: 'Bertanggung jawab atas penelitian pasar dan uji klinis produk.',
-    image: '/team/member3.jpg',
+    name: 'Aisha Yoshinta M.',
+    role: 'Marketing & Documentation',
+    bio: 'Kedokteran 24',
+    image: 'E:\Coding\SiManis_Web\simanis-web\team\member5.JPG', // Add your image to public/team/
     social: { linkedin: '#', github: '#', email: '#' }
   },
 ]
+
+function MemberCard({ member, index, large = false }: { member: typeof advisor; index: number; large?: boolean }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="group"
+    >
+      <div className="relative rounded-2xl overflow-hidden bg-white border border-tech-silver shadow-sm hover:shadow-xl transition-all duration-300">
+        <div className={`aspect-square bg-gradient-to-br from-medical-blue/5 to-digital-cyan/5 flex items-center justify-center ${large ? 'md:aspect-[3/1]' : ''}`}>
+          {/* Profile Image Placeholder */}
+          <div className="w-full h-full bg-tech-silver/30 flex items-center justify-center">
+            <svg className="w-24 h-24 text-medical-blue/30" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+        </div>
+        <div className="p-6 text-center">
+          <h3 className="text-xl font-bold text-medical-blue mb-1">{member.name}</h3>
+          <p className="text-sm text-digital-cyan font-medium mb-3">{member.role}</p>
+          <p className="text-sm text-medical-blue/60 mb-4">{member.bio}</p>
+          <div className="flex justify-center gap-3">
+            <a href={member.social.linkedin} className="text-medical-blue/40 hover:text-digital-cyan transition-colors">
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a href={member.social.github} className="text-medical-blue/40 hover:text-digital-cyan transition-colors">
+              <Github className="h-5 w-5" />
+            </a>
+            <a href={member.social.email} className="text-medical-blue/40 hover:text-digital-cyan transition-colors">
+              <Mail className="h-5 w-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
 
 export function Team() {
   return (
@@ -56,43 +111,15 @@ export function Team() {
           </p>
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {/* Dosen Pendamping */}
+        <div className="max-w-sm mx-auto mb-12">
+          <MemberCard member={advisor} index={0} />
+        </div>
+
+        {/* 5 Anggota Tim */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {teamMembers.map((member, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <div className="relative rounded-2xl overflow-hidden bg-white border border-tech-silver shadow-sm hover:shadow-xl transition-all duration-300">
-                <div className="aspect-square bg-gradient-to-br from-medical-blue/5 to-digital-cyan/5 flex items-center justify-center">
-                  {/* Profile Image Placeholder */}
-                  <div className="w-full h-full bg-tech-silver/30 flex items-center justify-center">
-                    <svg className="w-24 h-24 text-medical-blue/30" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
-                  </div>
-                </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-medical-blue mb-1">{member.name}</h3>
-                  <p className="text-sm text-digital-cyan font-medium mb-3">{member.role}</p>
-                  <p className="text-sm text-medical-blue/60 mb-4">{member.bio}</p>
-                  <div className="flex justify-center gap-3">
-                    <a href={member.social.linkedin} className="text-medical-blue/40 hover:text-digital-cyan transition-colors">
-                      <Linkedin className="h-5 w-5" />
-                    </a>
-                    <a href={member.social.github} className="text-medical-blue/40 hover:text-digital-cyan transition-colors">
-                      <Github className="h-5 w-5" />
-                    </a>
-                    <a href={member.social.email} className="text-medical-blue/40 hover:text-digital-cyan transition-colors">
-                      <Mail className="h-5 w-5" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            <MemberCard key={index} member={member} index={index + 1} />
           ))}
         </div>
       </div>
