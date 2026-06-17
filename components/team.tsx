@@ -19,35 +19,35 @@ const teamMembers = [
     name: 'Malfino Altara S.',
     role: 'Project Leader',
     bio: 'Teknik Elektro 24.',
-    image: '/team/member1.JPG', // file must exist in public/team/member1.jpg
+    image: '/team/member1.JPG', // file must exist in public/team/member1.JPG
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Irsyad Annafi N.',
     role: 'Hardware Engineer',
     bio: 'Teknik Elektro 24',
-    image: '/team/member2.JPG', // file must exist in public/team/member2.jpg
+    image: '/team/member2.JPG', // file must exist in public/team/member2.JPG
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Malikah Nurbaiti B.',
     role: 'Creative Media',
     bio: 'Kedokteran Gigi 24',
-    image: '/team/member3.JPG', // file must exist in public/team/member3.jpg
+    image: '/team/member3.JPG', // file must exist in public/team/member3.JPG
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Vika Nur R.',
     role: 'Software Developer',
     bio: 'Teknik Elektro 24',
-    image: '/team/member4.JPG', // file must exist in public/team/member4.jpg
+    image: '/team/member4.JPG', // file must exist in public/team/member4.JPG
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Aisha Yoshinta M.',
     role: 'Marketing & Documentation',
     bio: 'Kedokteran 24',
-    image: '/team/member5.JPG', // file must exist in public/team/member5.jpg
+    image: '/team/member5.JPG', // file must exist in public/team/member5.JPG
     social: { linkedin: '#', github: '#', email: '#' }
   },
 ]
@@ -58,7 +58,7 @@ function isValidImagePath(path: string) {
   return !!path && (path.startsWith('/') || path.startsWith('http'))
 }
 
-function MemberCard({ member, index, large = false }: { member: typeof advisor; index: number; large?: boolean }) {
+function MemberCard({ member, index, large = false, imagePosition = 'object-top' }: { member: typeof advisor; index: number; large?: boolean; imagePosition?: string }) {
   const hasImage = isValidImagePath(member.image)
 
   return (
@@ -76,7 +76,7 @@ function MemberCard({ member, index, large = false }: { member: typeof advisor; 
               src={member.image}
               alt={member.name}
               fill
-              className="object-cover object-top"
+              className={`object-cover ${imagePosition}`}
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           ) : (
@@ -131,7 +131,7 @@ export function Team() {
 
         {/* Dosen Pendamping */}
         <div className="max-w-sm mx-auto mb-12">
-          <MemberCard member={advisor} index={0} />
+          <MemberCard member={advisor} index={0} imagePosition="object-top" />
         </div>
 
         {/* 5 Anggota Tim — grid 6 kolom, tiap card span 2, 2 card terakhir di-offset agar center */}
@@ -141,7 +141,7 @@ export function Team() {
               key={index}
               className={`col-span-2 ${index === 3 ? 'md:col-start-2' : ''}`}
             >
-              <MemberCard member={member} index={index + 1} />
+              <MemberCard member={member} index={index + 1} imagePosition="object-[center_15%]" />
             </div>
           ))}
         </div>
