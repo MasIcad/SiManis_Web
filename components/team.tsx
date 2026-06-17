@@ -19,7 +19,7 @@ const teamMembers = [
     name: 'Malfino Altara S.',
     role: 'Project Leader',
     bio: 'Teknik Elektro 24.',
-    image: '/team/member1.JPG', // file must exist in public/team/member1.JPG
+    image: '/team/member1.png', // file must exist in public/team/member1.JPG
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
@@ -33,21 +33,21 @@ const teamMembers = [
     name: 'Malikah Nurbaiti B.',
     role: 'Creative Media',
     bio: 'Kedokteran Gigi 24',
-    image: '/team/member3.JPG', // file must exist in public/team/member3.JPG
+    image: '/team/member3.png', // file must exist in public/team/member3.JPG
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Vika Nur R.',
     role: 'Software Developer',
     bio: 'Teknik Elektro 24',
-    image: '/team/member4.JPG', // file must exist in public/team/member4.JPG
+    image: '/team/member4.png', // file must exist in public/team/member4.JPG
     social: { linkedin: '#', github: '#', email: '#' }
   },
   {
     name: 'Aisha Yoshinta M.',
     role: 'Marketing & Documentation',
     bio: 'Kedokteran 24',
-    image: '/team/member5.JPG', // file must exist in public/team/member5.JPG
+    image: '/team/member5.png', // file must exist in public/team/member5.JPG
     social: { linkedin: '#', github: '#', email: '#' }
   },
 ]
