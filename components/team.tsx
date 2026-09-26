@@ -1,149 +1,181 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Linkedin, Github, Mail } from 'lucide-react'
+import { Linkedin, Github, Mail, Users, GraduationCap, Award } from 'lucide-react'
 import Image from 'next/image'
 
 // Dosen Pendamping
 const advisor = {
   name: 'Eka Maulana, S.T., M.T., M.Eng.',
-  role: 'Dosen Pendamping',
-  bio: 'Dosen pembimbing yang mengarahkan riset dan pengembangan produk SiManis.',
-  image: '/team/pakeka.jpeg', // file must exist in public/team/pakeka.jpeg
-  social: { linkedin: '#', github: '#', email: '#' }
+  role: 'Dosen Pembimbing & Penasihat Riset',
+  faculty: 'Departemen Teknik Elektro, Fakultas Teknik Universitas Brawijaya',
+  bio: 'Mengarahkan riset bio-elektronika, perancangan sistem kendali lingkar tertutup (closed-loop), dan formulasi metodologi penelitian PKM-KI.',
+  image: '/team/pakeka.jpeg',
 }
 
-// Replace with your actual team members
+// 5 Anggota Tim Multidisiplin
 const teamMembers = [
   {
-    name: 'Malfino Altara S.',
-    role: 'Project Leader',
-    bio: 'Teknik Elektro 24.',
-    image: '/team/member1.png', // file must exist in public/team/member1.JPG
-    social: { linkedin: '#', github: '#', email: '#' }
+    name: 'Malfino Altara Satyaraka',
+    role: 'Ketua Tim & Penulis Utama (Author 1)',
+    faculty: 'Teknik Elektro 2024, Fakultas Teknik',
+    bio: 'Memimpin koordinasi riset terpadu, konseptualisasi teknologi E-Taste, dan perancangan arsitektur sistem kendali closed-loop.',
+    image: '/team/member1.png',
+    email: 'malfinoaltaras@student.ub.ac.id',
   },
   {
-    name: 'Irsyad Annafi N.',
-    role: 'Hardware Engineer',
-    bio: 'Teknik Elektro 24',
-    image: '/team/member2.JPG', // file must exist in public/team/member2.JPG
-    social: { linkedin: '#', github: '#', email: '#' }
+    name: 'Irsyad Annafi Nurhikmah',
+    role: 'Hardware & Electronics Engineer (Author 2)',
+    faculty: 'Teknik Elektro 2024, Fakultas Teknik',
+    bio: 'Merancang rangkaian sumber arus mikro Op-Amp OP07C, sistem proteksi soft-start, dan sirkuit daya nirkabel.',
+    image: '/team/member2.JPG',
+    email: '#',
   },
   {
-    name: 'Malikah Nurbaiti B.',
-    role: 'Creative Media',
-    bio: 'Kedokteran Gigi 24',
-    image: '/team/member3.png', // file must exist in public/team/member3.JPG
-    social: { linkedin: '#', github: '#', email: '#' }
+    name: 'Malikah Nurbaiti Balenzya',
+    role: 'Oral Health & Creative Media (Author 3)',
+    faculty: 'Pendidikan Dokter Gigi 2024, FKG',
+    bio: 'Menelaah fisiologi gustatori, biokompatibilitas elektroda oral SS316L perak terhadap saliva, serta perancangan media kreatif.',
+    image: '/team/member3.png',
+    email: '#',
   },
   {
-    name: 'Vika Nur R.',
-    role: 'Software Developer',
-    bio: 'Teknik Elektro 24',
-    image: '/team/member4.png', // file must exist in public/team/member4.JPG
-    social: { linkedin: '#', github: '#', email: '#' }
+    name: 'Vika Nur Ristiana',
+    role: 'Firmware & Software Developer (Author 4)',
+    faculty: 'Teknik Elektro 2024, Fakultas Teknik',
+    bio: 'Mengembangkan algoritma PWM mikrokontroler ESP32-C3, pemodelan histeresis Peltier, dan sistem thermal cut-off keamanan.',
+    image: '/team/member4.png',
+    email: '#',
   },
   {
-    name: 'Aisha Yoshinta M.',
-    role: 'Marketing & Documentation',
-    bio: 'Kedokteran 24',
-    image: '/team/member5.png', // file must exist in public/team/member5.JPG
-    social: { linkedin: '#', github: '#', email: '#' }
+    name: 'Aisa Yoshinta Maharani',
+    role: 'Medical Research & Documentation (Author 5)',
+    faculty: 'Pendidikan Dokter 2024, Fakultas Kedokteran',
+    bio: 'Mengkaji epidemiologi diabetes melitus nasional, analisis dampak asupan gula berlebih terhadap glikasi, dan dokumentasi klinis.',
+    image: '/team/member5.png',
+    email: '#',
   },
 ]
 
-// A path only renders as a real image if it's a web-safe path (starts with / or http).
-// Windows-style absolute paths (E:\...) or empty strings fall back to the placeholder icon.
-function isValidImagePath(path: string) {
-  return !!path && (path.startsWith('/') || path.startsWith('http'))
-}
-
-function MemberCard({ member, index, large = false, imagePosition = 'object-top' }: { member: typeof advisor; index: number; large?: boolean; imagePosition?: string }) {
-  const hasImage = isValidImagePath(member.image)
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="group"
-    >
-      <div className="relative rounded-2xl overflow-hidden bg-white border border-tech-silver shadow-sm hover:shadow-xl transition-all duration-300">
-        <div className={`relative aspect-square bg-gradient-to-br from-medical-blue/5 to-digital-cyan/5 ${large ? 'md:aspect-[3/1]' : ''}`}>
-          {hasImage ? (
-            <Image
-              src={member.image}
-              alt={member.name}
-              fill
-              className={`object-cover ${imagePosition}`}
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-          ) : (
-            /* Profile Image Placeholder */
-            <div className="absolute inset-0 flex items-center justify-center bg-tech-silver/30">
-              <svg className="w-24 h-24 text-medical-blue/30" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-              </svg>
-            </div>
-          )}
-        </div>
-        <div className="p-6 text-center">
-          <h3 className="text-xl font-bold text-medical-blue mb-1">{member.name}</h3>
-          <p className="text-sm text-digital-cyan font-medium mb-3">{member.role}</p>
-          <p className="text-sm text-medical-blue/60 mb-4">{member.bio}</p>
-          <div className="flex justify-center gap-3">
-            <a href={member.social.linkedin} className="text-medical-blue/40 hover:text-digital-cyan transition-colors">
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a href={member.social.github} className="text-medical-blue/40 hover:text-digital-cyan transition-colors">
-              <Github className="h-5 w-5" />
-            </a>
-            <a href={member.social.email} className="text-medical-blue/40 hover:text-digital-cyan transition-colors">
-              <Mail className="h-5 w-5" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  )
-}
-
 export function Team() {
   return (
-    <section id="team" className="py-24 bg-sterile-white">
-      <div className="container mx-auto px-4">
+    <section id="tim" className="py-24 bg-sterile-white relative">
+      <div className="container mx-auto px-4 max-w-6xl">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-medical-blue mb-4 font-plus-jakarta">
-            Meet the{' '}
-            <span className="text-gradient">Team</span>
+          <div className="inline-flex items-center gap-2 rounded-full bg-medical-blue/10 px-4 py-1.5 mb-3 border border-medical-blue/20">
+            <Users className="h-4 w-4 text-medical-blue" />
+            <span className="text-xs md:text-sm font-semibold text-medical-blue uppercase tracking-wider">
+              Kolaborasi Multidisiplin Universitas Brawijaya
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold text-medical-blue tracking-tight mb-4">
+            Tim Peneliti & Pengembang{' '}
+            <span className="bg-gradient-to-r from-medical-blue via-digital-cyan to-sweet-coral bg-clip-text text-transparent">
+              SiManis
+            </span>
           </h2>
-          <p className="text-lg text-medical-blue/70">
-            Tim inovatif di balik pengembangan SiManis, siap membawa sweetness revolution ke Indonesia
+          <p className="text-slate-600 text-base md:text-lg">
+            Sinergi multidisipliner antara ilmu Teknik Elektro (sistem kontrol & bio-elektronika), 
+            Kedokteran Gigi (biokompatibilitas oral & saliva), dan Kedokteran (pencegahan diabetes melitus).
           </p>
         </motion.div>
 
-        {/* Dosen Pendamping */}
-        <div className="max-w-sm mx-auto mb-12">
-          <MemberCard member={advisor} index={0} imagePosition="object-top" />
+        {/* Dosen Pembimbing Card */}
+        <div className="max-w-2xl mx-auto mb-16">
+          <div className="rounded-3xl bg-white border border-slate-200 p-6 md:p-8 shadow-xl flex flex-col sm:flex-row items-center gap-6">
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden bg-slate-100 flex-shrink-0 border-2 border-digital-cyan/30 shadow-md">
+              <Image
+                src={advisor.image}
+                alt={advisor.name}
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 160px, 160px"
+              />
+            </div>
+            <div className="text-center sm:text-left space-y-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider bg-digital-cyan/10 text-digital-cyan px-2.5 py-1 rounded-full border border-digital-cyan/20">
+                {advisor.role}
+              </span>
+              <h3 className="text-xl font-bold text-medical-blue">{advisor.name}</h3>
+              <div className="text-xs font-semibold text-slate-500">{advisor.faculty}</div>
+              <p className="text-xs text-slate-600 leading-relaxed">{advisor.bio}</p>
+            </div>
+          </div>
         </div>
 
-        {/* 5 Anggota Tim — grid 6 kolom, tiap card span 2, 2 card terakhir di-offset agar center */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
+        {/* 5 Team Members Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {teamMembers.map((member, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`col-span-2 ${index === 3 ? 'md:col-start-2' : ''}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="rounded-3xl bg-white border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group"
             >
-              <MemberCard member={member} index={index + 1} imagePosition="object-[center_15%]" />
-            </div>
+              <div className="relative aspect-square w-full bg-slate-100 overflow-hidden">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-digital-cyan bg-digital-cyan/10 px-2.5 py-1 rounded-full">
+                    {member.role}
+                  </span>
+                  <h4 className="text-lg font-bold text-medical-blue mt-2 leading-snug">
+                    {member.name}
+                  </h4>
+                  <p className="text-xs font-semibold text-slate-500 mt-1">
+                    {member.faculty}
+                  </p>
+                  <p className="text-xs text-slate-600 mt-3 leading-relaxed">
+                    {member.bio}
+                  </p>
+                </div>
+
+                {member.email !== '#' && (
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                    <span className="flex items-center gap-1.5 text-medical-blue font-medium">
+                      <Mail className="h-3.5 w-3.5 text-digital-cyan" />
+                      {member.email}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </motion.div>
           ))}
+        </div>
+
+        {/* Multidisciplinary Synergy Banner */}
+        <div className="mt-16 rounded-3xl bg-gradient-to-r from-medical-blue-dark to-slate-900 text-white p-6 md:p-8 max-w-4xl mx-auto shadow-xl">
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <div className="w-14 h-14 rounded-2xl bg-digital-cyan/20 text-digital-cyan-glow flex items-center justify-center flex-shrink-0">
+              <Award className="h-7 w-7" />
+            </div>
+            <div>
+              <h4 className="text-lg font-bold text-white mb-1">
+                Kekuatan Riset Multidisiplin Lintas 3 Fakultas
+              </h4>
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Pengembangan SiManis memadukan kepakaran rekayasa kendali elektronik terpadu dari Fakultas Teknik, telaah keamanan saliva dan kenyamanan oral dari Fakultas Kedokteran Gigi, serta validasi prevensi klinis diabetes melitus dari Fakultas Kedokteran Universitas Brawijaya.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
