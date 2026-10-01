@@ -17,7 +17,7 @@ const advisor = {
 const teamMembers = [
   {
     name: 'Malfino Altara Satyaraka',
-    role: 'Ketua Tim & Penulis Utama (Author 1)',
+    role: 'Team Leader & Quality Control Engineer',
     faculty: 'Teknik Elektro 2024, Fakultas Teknik',
     bio: 'Memimpin koordinasi riset terpadu, konseptualisasi teknologi E-Taste, dan perancangan arsitektur sistem kendali closed-loop.',
     image: '/team/member1.png',
@@ -25,7 +25,7 @@ const teamMembers = [
   },
   {
     name: 'Irsyad Annafi Nurhikmah',
-    role: 'Hardware & Software Engineer (Author 2)',
+    role: 'Hardware & Software Engineer',
     faculty: 'Teknik Elektro 2024, Fakultas Teknik',
     bio: 'Merancang rangkaian sumber arus mikro Op-Amp OP07C, sistem proteksi soft-start, dan sirkuit daya nirkabel.',
     image: '/team/member2.JPG',
@@ -33,7 +33,7 @@ const teamMembers = [
   },
   {
     name: 'Malikah Nurbaiti Balenzya',
-    role: 'Oral Health & Creative Media (Author 3)',
+    role: 'Oral Health & Creative Media',
     faculty: 'Pendidikan Dokter Gigi 2024, FKG',
     bio: 'Menelaah fisiologi gustatori, biokompatibilitas elektroda oral SS316L perak terhadap saliva, serta perancangan media kreatif.',
     image: '/team/member3.png',
@@ -41,7 +41,7 @@ const teamMembers = [
   },
   {
     name: 'Vika Nur Ristiana',
-    role: 'PROJECT FINANCE & HARDWARE SUPPORT (Author 4)',
+    role: 'PROJECT FINANCE & HARDWARE SUPPORT',
     faculty: 'Teknik Elektro 2024, Fakultas Teknik',
     bio: 'Mengembangkan algoritma PWM mikrokontroler ESP32-C3, pemodelan histeresis Peltier, dan sistem thermal cut-off keamanan.',
     image: '/team/member4.png',
@@ -49,7 +49,7 @@ const teamMembers = [
   },
   {
     name: 'Aisa Yoshinta Maharani',
-    role: 'Medical Research & Social Media Specialist (Author 5)',
+    role: 'Medical Research & Social Media Specialist',
     faculty: 'Pendidikan Dokter 2024, Fakultas Kedokteran',
     bio: 'Mengkaji epidemiologi diabetes melitus nasional, analisis dampak asupan gula berlebih terhadap glikasi, dan dokumentasi klinis.',
     image: '/team/member5.png',
