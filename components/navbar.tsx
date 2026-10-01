@@ -11,7 +11,6 @@ const navItems = [
   { label: 'Inovasi Alat', id: 'alat-simanis' },
   { label: 'Cara Kerja', id: 'cara-kerja' },
   { label: 'Hasil Uji Klinis', id: 'hasil-penelitian' },
-  { label: 'Kalkulator', id: 'kalkulator-gula' },
   { label: 'Riset', id: 'makalah' },
   { label: 'Tim', id: 'tim' },
 ]
@@ -86,14 +85,6 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-2">
             <Button
               size="sm"
-              variant="outline"
-              onClick={() => scrollToSection('kalkulator-gula')}
-              className="border-digital-cyan text-digital-cyan text-xs font-semibold hover:bg-digital-cyan/10"
-            >
-              Kalkulator Gula
-            </Button>
-            <Button
-              size="sm"
               onClick={() => scrollToSection('simulator')}
               className="bg-medical-blue hover:bg-medical-blue/90 text-white text-xs font-semibold shadow-sm"
             >
@@ -133,14 +124,6 @@ export function Navbar() {
                 </button>
               ))}
               <div className="pt-2 border-t border-slate-100 flex gap-2">
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => scrollToSection('kalkulator-gula')}
-                  className="w-1/2 border-digital-cyan text-digital-cyan text-xs"
-                >
-                  Kalkulator
-                </Button>
                 <Button
                   size="sm"
                   onClick={() => scrollToSection('simulator')}
