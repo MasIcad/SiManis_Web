@@ -72,7 +72,7 @@ export function InteractiveSimulator() {
   }
 
   return (
-    <section id="simulator" className="py-24 bg-white relative">
+    <section id="simulator" className="py-24bg-gradient-to-r from-emerald-600 to-teal-700 relative">
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
