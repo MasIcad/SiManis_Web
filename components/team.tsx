@@ -162,9 +162,9 @@ export function Team() {
         </div>
 
         {/* Multidisciplinary Synergy Banner */}
-        <div className="mt-16 rounded-3xl bg-gradient-to-r from-medical-blue-dark to-slate-900 text-white p-6 md:p-8 max-w-4xl mx-auto shadow-xl">
+        <div className="mt-16 rounded-3xl bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white p-6 md:p-8 max-w-4xl mx-auto shadow-xl border border-slate-800">
           <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="w-14 h-14 rounded-2xl bg-digital-cyan/20 text-digital-cyan-glow flex items-center justify-center flex-shrink-0">
+            <div className="w-14 h-14 rounded-2xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center flex-shrink-0 border border-cyan-500/30">
               <Award className="h-7 w-7" />
             </div>
             <div>
