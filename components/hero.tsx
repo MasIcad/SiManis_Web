@@ -173,7 +173,7 @@ export function Hero() {
                       <ShieldCheck className="h-4 w-4 text-emerald-600" />
                       Material Kontak Lidah:
                     </span>
-                    <span className="font-bold text-emerald-700">SS316L Lapis Perak (Ag)</span>
+                    <span className="font-bold text-emerald-700">Lapisan Tembaga</span>
                   </div>
                 </div>
               </div>
