@@ -35,7 +35,7 @@ const teamMembers = [
     name: 'Malikah Nurbaiti Balenzya',
     role: 'Oral Health & Creative Media',
     faculty: 'Pendidikan Dokter Gigi 2024, FKG',
-    bio: 'Menelaah fisiologi gustatori, biokompatibilitas elektroda oral SS316L perak terhadap saliva, serta perancangan media kreatif.',
+    bio: 'Menelaah fisiologi gustatori, biokompatibilitas elektroda oral terhadap saliva, serta perancangan media kreatif.',
     image: '/team/member3.png',
     email: '#',
   },

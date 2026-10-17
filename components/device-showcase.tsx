@@ -53,11 +53,11 @@ const componentsData = [
   },
   {
     id: 'electrodes',
-    name: 'Elektroda SS316L Lapis Perak (Ag) & Handle Cu',
+    name: 'Elektroda Tembaga & Handle Cu',
     icon: ShieldCheck,
     role: 'Sirkuit Tertutup Bio-Elektronik Food-Grade',
-    specs: 'SS316L Food-Grade, Lapis Perak Murni, Handle Cu',
-    description: 'Kepala sendok terbuat dari Stainless Steel 316L berlapis perak murni (Ag) yang tahan korosi enzim saliva, berkonduktivitas tinggi, dan menghilangkan sensasi rasa logam (metallic taste). Sirkuit tertutup terbentuk aman saat lidah menyentuh elektroda dan tangan memegang plat gagang tembaga.',
+    specs: 'SS316L Food-Grade, Lapis Tembaga Murni, Handle Cu',
+    description: 'Kepala sendok terbuat dari Stainless Steel 316L berlapis Tembaga yang tahan korosi enzim saliva, berkonduktivitas tinggi, dan menghilangkan sensasi rasa logam (metallic taste). Sirkuit tertutup terbentuk aman saat lidah menyentuh elektroda dan tangan memegang plat gagang tembaga.',
     color: 'from-slate-600 to-slate-800',
   },
   {
@@ -86,7 +86,7 @@ const galleryImages = [
   },
   {
     id: 'head',
-    title: 'Kepala Sendok SS316L Lapis Perak',
+    title: 'Kepala Sendok & Elektroda Kontak Lidah',
     subtitle: 'Area Kontak Papila Lidah Food-Grade & Biokompatibel',
     src: '/device/simanis-head.png',
   },
@@ -203,7 +203,7 @@ export function DeviceShowcase() {
                   </div>
                   <div className="flex items-center gap-3 text-sm text-slate-700">
                     <CheckCircle className="h-4 w-4 text-emerald-500 flex-shrink-0" />
-                    <span><strong>Material Kontak:</strong> SS316L Food-Grade Lapis Perak (Ag)</span>
+                    <span><strong>Material Kontak:</strong> Elektroda Tembaga</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-slate-700">
                     <CheckCircle className="h-4 w-4 text-emerald-500 flex-shrink-0" />
